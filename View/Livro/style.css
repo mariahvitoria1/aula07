@@ -1,0 +1,47 @@
+th{
+    padding: 10px;
+    color: white ;
+    background-color: blue ;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+table{
+    border-collapse: collapse;
+    border: solid 2px aqua;
+}
+tbody{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: white;
+    color:blue 
+}
+td{
+    padding: 20px;
+}
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 32px;
+    color: blue ;
+    padding:10px;
+}
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+.button{
+
+width: 50;
+margin: 20px;
+ background-color: aquamarine;
+ color:white ;
+ padding: 15px;
+ border-radius: 8px 8px 0px 0px;
+ justify-self: rigth;
+ margin-bottom: 10px;
+ 
+
+
+ 
+
+}
