@@ -1,15 +1,47 @@
 <?php
 require_once "Conexao.php";
-class LivroRepository{
+class LivroRepository
+{
 
     private ?PDO $PDO;
     public function __construct()
     {
         $this->PDO = Conexao::conectar();
     }
-    public function listarLivros(): array {
-        $stmt = $this ->PDO->query("SELECT * FROM livro");
+    public function listarLivros(): array
+    {
+        $stmt = $this->PDO->query("SELECT * FROM livro");
         return $stmt->fetchAll();
+    }
 
+    public function contemLivroPorCodigo(string|int $codigo): bool
+    {
+        $stmt = $this->PDO->prepare("SELECT COUNT(livro.id) as count FROM livro WHERE livro.codigo = :codigo");
+        $stmt->execute(["codigo" => $codigo]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] != 0;
+    }
+
+    public function InserirOutrosdados($data)
+    {
+        var_dump($data);
+        $stmt = $this->PDO->prepare("INSERT INTO livro (nome, data_publicacao, editora, class_etaria, codigo, descricao, status, criado_em, atualizado_em, autor)
+   VALUES(?,?,?,?,?,?,?,?,?,?)");
+        $datanova = (new DateTime())->format('Y-m-d H:i:s');
+        $stmt->execute([
+            $data["nome"],
+            $data['data_publicacao'],
+            $data['editora'],
+            $data['class_etaria'],
+            $data['codigo'],
+            $data['descricao'],
+            1,
+            $datanova,
+            $datanova,
+            $data['autor'],
+
+        ]);
+
+        return true;
     }
 }
