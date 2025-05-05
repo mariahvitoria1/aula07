@@ -29,7 +29,7 @@ class LivroRepository
    VALUES(?,?,?,?,?,?,?,?,?,?)");
         $datanova = (new DateTime())->format('Y-m-d H:i:s');
         $stmt->execute([
-            $data["nome"],
+            $data['nome'],
             $data['data_publicacao'],
             $data['editora'],
             $data['class_etaria'],
@@ -44,4 +44,23 @@ class LivroRepository
 
         return true;
     }
+
+    public function contemLivroid(string|int $id){
+ 
+        $stmt = $this->PDO->prepare("SELECT COUNT(livro.id) as count FROM livro WHERE livro.id = :id");
+        $stmt->execute(["id" => $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] != 0;
+
+    }
+
+    public function Deletar(string|int $id)
+    
+    {
+           $stmt = $this->PDO->prepare("DELETE FROM livro WHERE id = :id");
+           $stmt->execute(["id"=> $id]);
+           return true;
+    }
+
+    
 }

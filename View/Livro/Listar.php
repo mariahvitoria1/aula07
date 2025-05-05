@@ -1,3 +1,6 @@
+<?php
+session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,10 @@
    require_once "../../Model/LivroRepository.php";
    $livroReository = new LivroRepository();
    $livros = $livroReository->listarLivros();
-
+   if(isset($_SESSION['sucess'])){
+    echo "<p style ='color:green'> Livro Cadastrado com sucesso, obrigada!</p>";
+    unset($_SESSION['sucess']);
+   }
    ?> 
 </head>
 <body>
@@ -18,6 +24,7 @@
   <a class="button" href="Cadastrar.php"> Cadastrar </a>
   <Table>
     <thead>
+    <th>Id</th>
     <th>Nome</th>
    <th>Autor</th>
    <th>Codigo</th>
@@ -28,9 +35,12 @@
    
    echo "
    <tr>
+   <td>{$resultado['id']} </td>
    <td> {$resultado['nome']} </td>
    <td> {$resultado['autor']} </td>
    <td> {$resultado['codigo']}</td>
+   <td><a href='../../Controller/DeletarId.php?id={$resultado['id']}'>Deletar</a></td>
+  
    </tr> ";
   }
   ?>
