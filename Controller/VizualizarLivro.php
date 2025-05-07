@@ -1,5 +1,6 @@
 <?php
 require_once "../Utils/Validador.php";
+require_once "../Model/LivroRepository.php";
 
 if(!Validador::existeCampoGet('id')){
 
@@ -16,5 +17,5 @@ if(!$livro){
     exit();
 }
 
-header('Location: ../View/Livro/Editar.php');
+header('Location: ../View/Livro/Editar.php?id=' . $id);
 exit();

@@ -62,5 +62,36 @@ class LivroRepository
            return true;
     }
 
+    public function PegarLivroporId($id){
+
+        $stmt= $this->PDO->prepare("SELECT * FROM livro WHERE livro.id = :id");
+        $stmt->execute(["id"=> $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    
+
+    }
+     public function Atualizardados(string|int $id, array $post)
+     {
+        $datetimeNow = (new DateTime())->format('Y-m-d H:i:s');
+        $stmt= $this->PDO->prepare("UPDATE livro SET nome=?, data_publicacao=?, editora=?, class_etaria=?, codigo=?, descricao=?, autor=?, atualizado_em=? WHERE id=?");
+        $stmt->execute([
+            $post["nome"],
+            $post['data_publicacao'],
+            $post["editora"],
+            $post["class_etaria"],
+            (int) $post["codigo"],
+            $post["descricao"],
+            $post["autor"],
+            $datetimeNow,
+            $id,
+        ]);
+        return true;
+
+
+
+
+    }
+
     
 }
