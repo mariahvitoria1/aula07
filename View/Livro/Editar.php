@@ -6,9 +6,7 @@ session_start();
 function get_attribute($key): string
 {
     if (isset($_SESSION['Post'])) {
-        if (isset($_SESSION['Post'][$key])) {
-            return $_SESSION['Post'][$key];
-        }
+          return $_SESSION['Post'][$key];
     }
     return "";
 }
@@ -17,7 +15,6 @@ function get_attribute($key): string
 $id = $_GET['id'];
 $livroRepository = new LivroRepository();
 $livros = $livroRepository->PegarLivroporId($id);
-var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -39,8 +36,6 @@ var_dump($_SESSION);
 
                 <label for="nome"> Nome </label>
                 <input type="text" name="nome" value="<?php echo $livros['nome'] ?>"></input>
-
-
 
                 <label for="data_publicacao">data de publicacao </label>
                 <input type="date" name="data_publicacao" value="<?php echo $livros['data_publicacao'] ?>"></input>

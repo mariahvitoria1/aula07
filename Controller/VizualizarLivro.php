@@ -11,6 +11,7 @@ $id = $_GET['id'];
 $livroRepository = new LivroRepository();
 $livro = $livroRepository->contemLivroid($id);
 
+
 if(!$livro){
 
     header('Location: ../View/Livro/Listar.php');

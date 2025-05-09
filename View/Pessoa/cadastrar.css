@@ -1,0 +1,58 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f3fc;
+    margin: 0;
+    padding: 0;
+}
+
+.Cadastrar {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #6a0dad; 
+    margin-bottom: 20px;
+}
+
+.text-Field {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #5a2d82; 
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c8a2c8; 
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+button {
+    padding: 10px;
+    background-color: #8e44ad;
+    border: none;
+    color: white;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+button#btCancelar {
+    background-color: #6c3483;
+}
