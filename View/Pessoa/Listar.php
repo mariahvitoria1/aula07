@@ -15,27 +15,26 @@ $pessoa = $pessoaRepository->Listarpessoa();
 <table>
     <h1>Listar as pessoas</h1>
     <div class="div-button">
-        <a class="btCadastro" href="Cadastrar.php"> Cadastrar </a>
+        <a class="btCadastro" href="CadastrarPessoa.php"> Cadastrar </a>
     </div>
     <table>
         <thead>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>DATA DE NASCIMENTO </th>
-            <th>TELEFONE</th>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Data de Nascimento </th>
+            <th>Telefone</th>
+            <th>Ação</th>
         </thead>
         <tbody>
             <?php foreach ($pessoa as $resultado) {
-
-
-                echo "
+            echo "
             <tr>
             <td>{$resultado['id']} </td>
             <td> {$resultado['nome']} </td>
             <td> {$resultado['data_nascimento']} </td>
             <td> {$resultado['telefone']}</td>
-            <td><a href='../../Controller/DeletarId.php?id={$resultado['id']}'>Deletar</a></td>
-            <td><a href='../../Controller/VizualizarLivro.php?id={$resultado['id']}'>Editar</a></td>
+            <td><a href='../../Controller/Deletarpessoa.php?id={$resultado['id']}'>Deletar</a>
+            <a href='Editarpessoa.php?id={$resultado['id']}'>Editar</a></td>
             </tr>";
             }
 

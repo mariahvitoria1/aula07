@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFF8DC; 
+    color: #333;
+    padding: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    color: #FF8C00; 
+    margin-bottom: 20px;
+}
+
+.div-button {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btCadastro {
+    background-color: #FFA500; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btCadastro:hover {
+    background-color: #FF7F50; 
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+
+th {
+    background-color: #FF8C00; 
+    color: white;
+    font-weight: bold;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: #FFE4B5; 
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #FFDAB9;
+}
+
+tbody tr:hover {
+    background-color: #FF7F50; 
+    color: white;
+}

@@ -43,8 +43,6 @@ session_start()
    <td> {$resultado['codigo']}</td>
    <td><a href='../../Controller/DeletarId.php?id={$resultado['id']}'>Deletar</a></td>
    <td><a href='../../Controller/VizualizarLivro.php?id={$resultado['id']}'>Editar</a></td>
-   
-  
    </tr> ";
         }
         ?>
