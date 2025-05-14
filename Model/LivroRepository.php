@@ -92,6 +92,11 @@ class LivroRepository
 
 
     }
+    public function naoseioq()
+    {
+        $stmt = $this->PDO->query("SELECT id, nome FROM livro");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     
 }

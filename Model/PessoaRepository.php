@@ -15,6 +15,11 @@ class PessoaRepository
         $stmt = $this->PDO->query("SELECT id, nome,data_nascimento, telefone FROM pessoa");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function ListarPessoa2()
+    {
+        $stmt = $this->PDO->query("SELECT id, nome FROM pessoa ");
+        return $stmt->fetchAll();
+    }
     public function CreatPessoa(array $post)
     {
         $stmt = $this->PDO->prepare("INSERT INTO pessoa (nome, data_nascimento, telefone, cpf, endereco) VALUES (?,?,?,?,?)");
@@ -53,7 +58,6 @@ class PessoaRepository
         $stmt->bindParam(6, $id);
         $stmt->execute();
       }
-      
 
 
 }
