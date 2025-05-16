@@ -25,4 +25,5 @@ class EmprestimoRepository
     $stmt->bindParam(4, $post["id_livro"]);
     $stmt->execute();
   }
+
 }

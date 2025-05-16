@@ -39,7 +39,7 @@ class PessoaRepository
         return $stmt->fetch();
     }
 
-     public function Pegarpessoaporid(int|string $id){
+        public function Pegarpessoaporid(int|string $id){
         $stmt= $this->PDO->prepare("SELECT * FROM pessoa WHERE id = :id");
         $stmt->bindParam("id", $id, PDO::PARAM_STR);
         $stmt->execute();
@@ -58,6 +58,8 @@ class PessoaRepository
         $stmt->bindParam(6, $id);
         $stmt->execute();
       }
+
+    
 
 
 }

@@ -45,36 +45,34 @@ class LivroRepository
         return true;
     }
 
-    public function contemLivroid(string|int $id){
- 
+    public function contemLivroid(string|int $id)
+    {
+
         $stmt = $this->PDO->prepare("SELECT COUNT(livro.id) as count FROM livro WHERE livro.id = :id");
         $stmt->execute(["id" => $id]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['count'] != 0;
-
     }
 
     public function Deletar(string|int $id)
-    
+
     {
-           $stmt = $this->PDO->prepare("DELETE FROM livro WHERE id = :id");
-           $stmt->execute(["id"=> $id]);
-           return true;
+        $stmt = $this->PDO->prepare("DELETE FROM livro WHERE id = :id");
+        $stmt->execute(["id" => $id]);
+        return true;
     }
 
-    public function PegarLivroporId($id){
+    public function PegarLivroporId($id)
+    {
 
-        $stmt= $this->PDO->prepare("SELECT * FROM livro WHERE livro.id = :id");
-        $stmt->execute(["id"=> $id]);
+        $stmt = $this->PDO->prepare("SELECT * FROM livro WHERE livro.id = :id");
+        $stmt->execute(["id" => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    
-    
-
     }
-     public function Atualizardados(string|int $id, array $post)
-     {
+    public function Atualizardados(string|int $id, array $post)
+    {
         $datetimeNow = (new DateTime())->format('Y-m-d H:i:s');
-        $stmt= $this->PDO->prepare("UPDATE livro SET nome=?, data_publicacao=?, editora=?, class_etaria=?, codigo=?, descricao=?, autor=?, atualizado_em=? WHERE id=?");
+        $stmt = $this->PDO->prepare("UPDATE livro SET nome=?, data_publicacao=?, editora=?, class_etaria=?, codigo=?, descricao=?, autor=?, atualizado_em=? WHERE id=?");
         $stmt->execute([
             $post["nome"],
             $post['data_publicacao'],
@@ -87,10 +85,6 @@ class LivroRepository
             $id,
         ]);
         return true;
-
-
-
-
     }
     public function naoseioq()
     {
@@ -98,5 +92,19 @@ class LivroRepository
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    
+    public function AtualizarStatus(string| int $id): bool
+    { 
+        $stmt = $this->PDO->prepare("UPDATE livro SET status = 0 Where id=:id");
+        $stmt->execute(["id" => $id]);
+        return true;
+    }
+
+    public function ConsultarStatus(string| int $id)
+    {
+        $stmt = $this->PDO->prepare("SELECT id, status From livro Where id=:id");
+        $stmt->execute(["id" => $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
 }

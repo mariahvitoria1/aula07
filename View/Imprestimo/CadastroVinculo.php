@@ -50,6 +50,24 @@ $passaralgo = $passalivro->naoseioq();
             <label for="datadevolucao"> Data de devolucao</label>
             <input type="date" name="data_devolucao" id="data_devolucao">
 
+            <?php
+            if(isset($_SESSION['error1'])){
+            echo"<p style='color:red> Esse livro não existe!'";
+            unset($_SESSION['error']);
+            }
+            
+            if(isset($_SESSION['error'])){
+            echo"<p style='color:red> Essa pessoa não existe!'";
+            unset($_SESSION['error']);
+            }
+            
+            if(isset($_SESSION['error2'])){
+            echo"<p style='color:red> Esse livro ja foi emprestado!'";
+            unset($_SESSION['error']);
+            }
+            
+            ?>
+
             <button class="bt-cancelar" type="submit"> Cancelar </button>
             <button class="bt-emprestimo" type="submit"> Emprestimo </button>
         </form>
